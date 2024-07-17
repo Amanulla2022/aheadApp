@@ -8,8 +8,8 @@ import sadGhost from "../images/ghost-sad.png";
 
 const Home = () => {
   return (
-    <div className="flex justify-center items-center bg-violet-100 relative rounded-3xl flex-row overflow-hidden w-full">
-      <div className="flex items-start justify-start flex-col w-1/2 px-10 relative">
+    <div className="flex justify-center items-center bg-violet-100 relative rounded-3xl flex-col md:flex-row overflow-hidden w-full pt-20 md:pt-32">
+      <div className="flex items-start justify-start flex-col w-full md:w-1/2 px-10 relative">
         <div className="w-full">
           <p className="text-lg">Ahead app</p>
         </div>
@@ -49,23 +49,23 @@ const Home = () => {
       </div>
 
       {/* dashed circle */}
-      <div className="w-1/2 flex justify-center items-center relative">
+      <div className="w-full md:w-1/2 flex justify-center items-center relative z-10">
         <div className="absolute inset-0 flex justify-center items-center">
-          <div className="absolute h-3/4 w-3/4 border-4 border-white border-dashed  rounded-[50%]">
+          <div className="absolute h-3/4 w-3/4 border-4 border-white border-dashed rounded-[50%]">
             <img
-              className="absolute bottom-10 left-10 h-16 w-16 rounded-2xl"
+              className="absolute bottom-10 left-0 md:left-10 md:h-16 h-12 md:w-16 w-12 rounded-2xl"
               src={voiletGhost}
               alt="Violet Ghost"
             />
             <img
               className="absolute top-32 -right-4 h-16 w-16 rounded-2xl"
               src={angryGhost}
-              alt="Violet Ghost"
+              alt="Angry Ghost"
             />
             <img
-              className="absolute top-10 left-10 h-16 w-16  rounded-2xl"
+              className="absolute top-10 left-10 h-16 w-16 rounded-2xl"
               src={sadGhost}
-              alt="Violet Ghost"
+              alt="Sad Ghost"
             />
           </div>
         </div>
