@@ -4,7 +4,7 @@ import people from "../data/abou-you/peopleData";
 
 const WhatPeopleThinksAboutYou = () => {
   return (
-    <section className="my-16 rounded-xl bg-blue-50 md:p-10 mx-8 md:mx-24">
+    <section className="mt-16 mb-32 rounded-xl bg-blue-50 md:p-10 mx-8 md:mx-24">
       <h3 className="text-center text-gray-600 text-lg font-semibold">
         Let your friends, family, and co-workers (anonymously) rate your social
         skills
