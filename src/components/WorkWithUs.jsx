@@ -4,7 +4,7 @@ import workWithUsData from "../data/workWithUsData";
 
 const WorkWithUs = () => {
   return (
-    <div className="md:px-20 my-32">
+    <div id="work-with-us" className="md:px-20 my-32">
       <section className="mt-16 rounded-2xl  bg-violet-100 p-12 px-16">
         <div className="flex  justify-between items-center text-5xl font-bold">
           <span className="">Work with us</span>

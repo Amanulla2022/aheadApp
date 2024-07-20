@@ -4,18 +4,18 @@ import cardData from "../data/cardData";
 
 const DoesThisSound = () => {
   return (
-    <section className="mt-12 mb-32 p-4 md:px-20">
+    <section id="manifesto" className="mt-12 mb-32 p-4 md:px-20">
       <div className="flex items-center justify-start mb-5">
-        <h1 className="text-4xl md:text-6xl font-bold px-4">
+        <h1 className="text-4xl md:text-6xl font-bold px-4 slide-in-right">
           Does this sound familiar...
         </h1>
         <img
-          className="h-16 w-16 md:h-24 md:w-24"
+          className="h-16 w-16 md:h-24 md:w-24 slide-in-left"
           src={redGhost}
           alt="Red Angry Ghost"
         />
       </div>
-      <div className="flex space-x-4 md:space-x-8 items-center overflow-x-auto p-12 hide-scrollbar">
+      <div className="flex space-x-4 md:space-x-8 items-center overflow-x-auto p-12 hide-scrollbar slide-in-left">
         {cardData.map((card) => (
           <div
             key={card.id}

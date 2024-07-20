@@ -4,17 +4,17 @@ import data from "../data/improvementData";
 
 const WrongWithSelfImprovement = () => {
   return (
-    <section className="px-20 mt-10 mb-24">
+    <section id="self-awareness-test" className="px-20 mt-10 mb-24">
       <div className="flex flex-col justify-start items-start">
-        <p className="text-lg md:text-xl font-bold text-black">
+        <p className="text-lg md:text-xl font-bold text-black slide-in-right">
           Wrong with self improvement & how we're fixing it.
         </p>
         <div className="flex gap-4">
-          <h1 className="md:text-6xl text-3xl pb-3 font-bold text-black">
+          <h1 className="md:text-6xl text-3xl pb-3 font-bold text-black slide-in-right">
             Self Improvement. Ugh.
           </h1>
           <img
-            className="md:h-24 h-16 w-16 md:w-24"
+            className="md:h-24 h-16 w-16 md:w-24 slide-in-left"
             src={sadGhost}
             alt="sad ghost"
           />

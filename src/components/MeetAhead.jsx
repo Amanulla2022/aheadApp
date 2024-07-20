@@ -7,11 +7,11 @@ const MeetAhead = () => {
   return (
     <section className="px-20 relative mt-7 mb-32">
       <img
-        className="absolute -top-4 right-32 h-8 w-8 z-10"
+        className="absolute -top-4 right-32 h-8 w-8 z-10 rotate-infinite"
         src={flower}
         alt="flower"
       />
-      <div className="overflow-hidden relative flex flex-col rounded-xl bg-pink-100 md:h-[450px] h-full">
+      <div className="overflow-hidden relative flex flex-col rounded-xl bg-pink-50 md:h-[450px] h-full">
         <div className="flex flex-col mt-20 ml-20 gap-3">
           <div>
             <p className="text-md text-left">Built Out of Frustration</p>
@@ -26,6 +26,25 @@ const MeetAhead = () => {
             transform: "translate(-50%, -50%)",
           }}
         ></div>
+        <div
+          className="absolute h-8 w-8 bg-violet-200 bottom-[30%]  md:left-[36%] left-[50%] rounded-full z-0 "
+          style={{
+            transform: "translate(-50%, -50%)",
+          }}
+        ></div>
+        <div
+          className="absolute h-8 w-8 bg-red-200 md:bottom-[20%] bottom-[10%] md:left-[30%] left-[50%]  rounded-full z-0 "
+          style={{
+            transform: "translate(-50%, -50%)",
+          }}
+        ></div>
+        <div
+          className="absolute h-3 w-3 bg-red-500 md:bottom-[24%] bottom-[13%]  md:left-[30%] left-[50%] rounded-full z-0 "
+          style={{
+            transform: "translate(-50%, -50%)",
+          }}
+        ></div>
+
         <div className="flex md:flex-row flex-col ">
           <div className="basis-1/2 flex flex-col justify-center items-center mt-10 -ml-32 gap-3 relative">
             <div

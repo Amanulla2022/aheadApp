@@ -11,6 +11,7 @@ const StartTest = () => {
       </p>
       <div className="flex flex-row gap-2 items-center justify-center">
         <p className="">Made with Love...</p>
+        <p className="fancy-font">Amanulla Mulla</p>
       </div>
       <button className="rounded-3xl p-2 w-28 text-white bg-black">
         Start Test
