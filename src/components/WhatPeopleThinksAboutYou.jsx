@@ -29,10 +29,12 @@ const WhatPeopleThinksAboutYou = () => {
             {people.map((person, index) => (
               <div
                 key={index}
-                className={`h-4 w-4 rounded-full bg-${person.color} relative z-10`}
+                className="h-8 w-8 rounded-full relative z-10"
+                style={{ backgroundColor: person.color }}
               >
                 <p
-                  className={`absolute text-white p-2 bg-${person.color} rounded ${person.position}`}
+                  className={`absolute text-white p-2 rounded ${person.position}`}
+                  style={{ backgroundColor: person.color }}
                 >
                   {person.label}
                 </p>

@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useSpring, animated } from "@react-spring/web";
+import { useInView } from "react-intersection-observer";
 import phoneImage from "../images/phone-image.png";
 import appleLogo from "../images/apple-image.png";
 import starIcon from "../images/starIcon.svg";
@@ -8,10 +10,43 @@ import sadGhost from "../images/ghost-sad.png";
 import green from "../images/greenHalf.png";
 
 const Home = () => {
+  const [rotations, setRotations] = useState(0);
+  const [stopRotations, setStopRotations] = useState(false);
+
+  const { ref: homeRef, inView: homeInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  useEffect(() => {
+    if (rotations >= 2) {
+      setStopRotations(true);
+    }
+  }, [rotations]);
+
+  const rotatingProps = useSpring({
+    from: { transform: "rotate(0deg)" },
+    to: { transform: "rotate(360deg)" },
+    config: { duration: 2000 },
+    loop: { reverse: true },
+    onRest: () => {
+      setRotations((prev) => prev + 1);
+    },
+    reset: !stopRotations && homeInView,
+  });
+
+  const ghostProps = useSpring({
+    from: { transform: "rotate(0deg)" },
+    to: { transform: "rotate(-360deg)" },
+    config: { duration: 1000, bounce: 0.4 },
+    loop: rotations < 2 && homeInView,
+  });
+
   return (
     <div
       id="home"
       className="flex justify-center items-center bg-violet-100 relative rounded-3xl flex-col md:flex-row overflow-hidden w-full pt-20 mt-28 md:pt-32"
+      ref={homeRef}
     >
       <img
         className="absolute top-0 left-20 h-32 w-32 z-10 green-image"
@@ -96,23 +131,58 @@ const Home = () => {
       {/* dashed circle */}
       <div className="w-full md:w-1/2 flex justify-center items-center relative z-10">
         <div className="absolute inset-0 flex justify-center items-center">
-          <div className="absolute h-3/4 w-3/4 border-4 border-white border-dashed rounded-[50%]">
-            <img
-              className="absolute bottom-10 left-0 md:left-10 md:h-16 h-12 md:w-16 w-12 rounded-2xl"
-              src={voiletGhost}
-              alt="Violet Ghost"
-            />
-            <img
-              className="absolute top-32 -right-4 h-16 w-16 rounded-2xl"
-              src={angryGhost}
-              alt="Angry Ghost"
-            />
-            <img
-              className="absolute top-10 left-10 h-16 w-16 rounded-2xl"
-              src={sadGhost}
-              alt="Sad Ghost"
-            />
-          </div>
+          <animated.div
+            style={{
+              ...rotatingProps,
+              border: "3px dashed white",
+              borderStyle: "dashed",
+            }}
+            className="absolute rounded-full h-96 w-96 border-dashed border-white"
+          >
+            {/* red ghost */}
+            <animated.div
+              style={{ ...ghostProps, top: "55px" }}
+              className="absolute h-16 w-12"
+            >
+              <img
+                height={100}
+                width={100}
+                className="h-full w-full"
+                src={sadGhost}
+                alt="Sad Ghost"
+              />
+            </animated.div>
+
+            <animated.div
+              style={{
+                ...ghostProps,
+                right: "-30px",
+                top: "50%",
+                transform: "translate(-50%,-50%)",
+              }}
+              className="absolute h-16 w-14"
+            >
+              <img
+                height={100}
+                width={100}
+                className="h-full w-full"
+                src={angryGhost}
+                alt="Angry Ghost"
+              />
+            </animated.div>
+            {/* violet ghost */}
+            <animated.div
+              style={{ ...ghostProps, bottom: "-22px", right: "50%" }}
+              className="absolute h-14 w-12"
+            >
+              <img
+                height={100}
+                width={100}
+                src={voiletGhost}
+                alt="Violet Ghost"
+              />
+            </animated.div>
+          </animated.div>
         </div>
 
         <img className="w-full rounded-xl z-10" src={phoneImage} alt="Phone" />

@@ -25,38 +25,6 @@ body {
   animation: moveLowerPart 1s ease-in-out infinite;
 }
 
-/* h1 */
-@keyframes slideInLeft {
-  0% {
-    opacity: 0;
-    transform: translateX(-100%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.slide-in-right {
-  animation: slideInLeft 2s ease-out forwards;
-}
-
-/* ghost image and cards  */
-@keyframes slideInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(100%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.slide-in-left {
-  animation: slideInRight 2s ease-out forwards;
-}
-
 /* flower rotate */
 @keyframes rotateInfinite {
   0% {
