@@ -11,7 +11,7 @@ const Vacancies = () => {
         {vacancies.map((vac, index) => (
           <div
             key={index}
-            className={`bg-pink-50 p-6 rounded-lg shadow-md flex-grow basis-1/4 transition-all duration-300 ${
+            className={`cursor-pointer bg-pink-50 p-6 rounded-lg shadow-md flex-grow basis-1/4 transition-all duration-300 ${
               hoveredIndex === index ? "md:h-60 h-80" : "md:h-40 h-60"
             } relative`}
             onMouseEnter={() => setHoveredIndex(index)}

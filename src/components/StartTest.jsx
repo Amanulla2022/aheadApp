@@ -1,26 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useSpring, animated } from "@react-spring/web";
+import { useInView } from "react-intersection-observer";
 
 const StartTest = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const { ref: sectionRef, inView: sectionInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
 
   const sectionProps = useSpring({
-    opacity: isVisible ? 1 : 0,
-    scale: isVisible ? 1 : 0.5,
+    opacity: sectionInView ? 1 : 0,
+    scale: sectionInView ? 1 : 0.5,
     config: { duration: 1000 },
   });
 
   const textProps = useSpring({
-    opacity: isVisible ? 1 : 0,
-    transform: isVisible ? "translateX(0)" : "translateX(-10px)",
+    opacity: sectionInView ? 1 : 0,
+    transform: sectionInView ? "translateX(0)" : "translateX(-10px)",
     config: { duration: 1300 },
   });
 
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
   return (
-    <section className="mt-20 flex flex-col gap-3 text-center p-8 items-center">
+    <section
+      ref={sectionRef}
+      className="mt-20 flex flex-col gap-3 text-center p-8 items-center"
+    >
       <p className="text-center">We take Privacy seriously</p>
       <p className="font-bold text-3xl">Before you get started</p>
       <p className="text-xl font-normal">
